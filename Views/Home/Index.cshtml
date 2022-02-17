@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "JungleBooks: Home";
+}
+
+@model BooksViewModel
+
+<h1 class="text-center fw-bolder">Welcome to JungleBooks!</h1>
+
+@foreach(Book b in Model.Books)
+ {
+    <h3 class="fw-bold">@b.Title</h3>
+    <ul class="fw-light">
+        <li>Author: @b.Author</li>
+        <li>Publisher: @b.Publisher</li>
+        <li>ISBN: @b.Isbn</li>
+        <li>Classification/Category: @b.Classification / @b.Category</li>
+        <li>Number of Pages: @b.PageCount</li>
+        <li>Price: @b.Price</li>
+    </ul>
+    <br />
+ }
+
+<div page-books="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+     class="btn-group m-1"></div>
