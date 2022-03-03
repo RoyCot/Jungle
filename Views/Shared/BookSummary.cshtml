@@ -1,0 +1,23 @@
+﻿@{
+}
+@model Book
+
+<div class="card card-outline-primary m-1 p-1">
+    <h3 class="fw-bold">@Model.Title</h3>
+    <ul class="fw-light">
+        <li>Author: @Model.Author</li>
+        <li>Publisher: @Model.Publisher</li>
+        <li>ISBN: @Model.Isbn</li>
+        <li>Classification/Category: @Model.Classification / @Model.Category</li>
+        <li>Number of Pages: @Model.PageCount</li>
+        <li>Price: @Model.Price</li>
+    </ul>
+    <br />
+
+    <form method="post" asp-page="/Cart">
+        <input type="hidden" asp-for="@Model.BookId" />
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm float-end">Add to Cart</button>
+        </span>
+    </form>
+</div>
