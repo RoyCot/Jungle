@@ -13,30 +13,34 @@ namespace Jungle.Pages
     {
         private IJungleRepository repo { get; set; }
 
-        public CartModel (IJungleRepository temp)
-        {
-            repo = temp;
-        }
-
         public ShoppingCart sc { get; set; }
         public string ReturnUrl { get; set; }
+
+        public CartModel (IJungleRepository temp, ShoppingCart shop)
+        {
+            repo = temp;
+            sc = shop;
+        }
 
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            sc = HttpContext.Session.GetJson<ShoppingCart>("sc") ?? new ShoppingCart();
         }
 
-        public IActionResult OnPost(int bookId)
+        public IActionResult OnPost(int bookId, string returnUrl)
         {
             Book b = repo.Books.FirstOrDefault(x => x.BookId == bookId);
 
-            sc = HttpContext.Session.GetJson<ShoppingCart>("sc") ?? new ShoppingCart();
             sc.AddItem(b, 1);
 
-            HttpContext.Session.SetJson("sc", sc);
+            return RedirectToPage(new { ReturnUrl = returnUrl });
+        }
 
-            return RedirectToPage(new { ReturnUrl = ReturnUrl });
+        public IActionResult OnPostRemove(int bookId, string returnUrl)
+        {
+            sc.RemoveItem(sc.Items.First(x => x.Book.BookId == bookId).Book);
+
+            return RedirectToPage(new { ReturnUrl = returnUrl });
         }
     }
 }
