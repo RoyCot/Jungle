@@ -15,9 +15,7 @@ namespace Jungle.Models
             context = temp;
         }
 
-        public IQueryable<Checkout> Donations => context.Purchases.Include(x => x.Lines).ThenInclude(x => x.Book);
-
-        public IQueryable<Checkout> Purchases => throw new NotImplementedException();
+        public IQueryable<Checkout> Purchases => context.Purchases.Include(x => x.Lines).ThenInclude(x => x.Book);
 
         public void SavePurchase(Checkout purchase)
         {

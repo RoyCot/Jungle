@@ -8,14 +8,24 @@
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="bg-dark text-white p-2">
+    <div class="text-white p-2">
         <div class="container-fluid">
-            <div class="row">
-                <span class="navbar-brand m-lg-2">JUNGLE BOOKS</span>
-                <span class="col-6 text-right">
-                    <vc:cart-summary></vc:cart-summary>
-                </span>
-            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand m-lg-2" href="">JUNGLE BOOKS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <!--Bootstrap Extra 1: Adding a link to the admin page on the navbar-->
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/admin">Admin Page</a>
+                        </li>
+                    </ul>
+                    <span class="col-6 text-right">
+                        <vc:cart-summary></vc:cart-summary>
+                    </span>
+                </div>
+            </nav>
         </div>
     </div>
 
@@ -29,5 +39,7 @@
             </div>
         </div>
     </div>
+    <!--Bootstrap Extra 2: Fixed bottom or footer on the page-->
+    <div class="fixed-bottom">This footer is a bit sticky... Cannnot get rid of it...</div>
 </body>
 </html>

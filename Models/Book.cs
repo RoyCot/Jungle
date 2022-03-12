@@ -13,12 +13,16 @@ namespace Jungle.Models
         [Key]
         [Required]
         public int BookId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Author { get; set; }
         public string Publisher { get; set; }
         public string Isbn { get; set; }
         public string Classification { get; set; }
+        [Required]
         public string Category { get; set; }
+        [Required]
         public int PageCount { get; set; }
         public double Price { get; set; }
     }

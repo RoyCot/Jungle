@@ -27,5 +27,7 @@ namespace Jungle.Models
         public string Zip { get; set; }
         [Required(ErrorMessage = "Please Enter a Country")]
         public string Country { get; set; }
+        [BindNever]
+        public bool PurchaseCompleted { get; set; } = false;
     }
 }
