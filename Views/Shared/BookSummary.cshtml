@@ -2,7 +2,9 @@
 }
 @model Book
 
-<div class="card card-outline-primary m-1 p-1">
+<!--Bootstrap 1 & 2 for Checkpoint 11, Removed the card from the book div tag, added start borders (#1) and 
+    created shadow backgrounds (#2) behind each individual book-->
+<div class="m-5 p-5 border-start border-success border-4 shadow-lg">
     <h3 class="fw-bold">@Model.Title</h3>
     <ul class="fw-light">
         <li>Author: @Model.Author</li>
